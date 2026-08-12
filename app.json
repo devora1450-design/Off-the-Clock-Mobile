@@ -1,23 +1,37 @@
 {
   "expo": {
-    "name": "Off the Clock",
-    "slug": "off-the-clock",
+    "name": "Retire",
+    "slug": "retire-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0c4a6e"
+    },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.offtheclock.app"
+      "bundleIdentifier": "com.retire.countdown",
+      "infoPlist": {
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you.",
+        "SKAdNetworkItems": [
+          { "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork" },
+          { "SKAdNetworkIdentifier": "4fzdc2evr5.skadnetwork" },
+          { "SKAdNetworkIdentifier": "2fnua5tdw4.skadnetwork" }
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0c4a6e",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "package": "com.offtheclock.app"
+      "package": "com.retire.countdown",
+      "permissions": ["com.google.android.gms.permission.AD_ID"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -26,10 +40,15 @@
       [
         "react-native-google-mobile-ads",
         {
-          "androidAppId": "ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy",
-          "iosAppId": "ca-app-pub-xxxxxxxxxxxxxxxx~zzzzzzzzzz"
+          "androidAppId": "ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY",
+          "iosAppId": "ca-app-pub-XXXXXXXXXXXXXXXX~ZZZZZZZZZZ"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "YOUR_EAS_PROJECT_ID"
+      }
+    }
   }
 }
