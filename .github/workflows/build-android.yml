@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18 # Forces the stable Node version your app actually wants
+          node-version: 18
 
       - name: Setup EAS CLI
         run: npm install -g eas-cli
