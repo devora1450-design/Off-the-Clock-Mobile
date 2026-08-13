@@ -1,1 +1,29 @@
+name: EAS Android Cloud Build
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Forces the stable Node version your app actually wants
+
+      - name: Setup EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Run EAS Build
+        run: eas build --platform android --profile production --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EAS_NO_VCS: 1
